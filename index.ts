@@ -1,20 +1,19 @@
 #! /usr/bin/env node
 
+///////////////////////////////////   WORD COUNTER    ////////////////////////////////////////////
 // import inquirer which is command line interface for node.js
 import inquirer from "inquirer"
 import chalk from "chalk"
 
 // declare a constant answer and assign it to the result of inquirer.prompt function.
 
-//let answer=await inquirer.prompt([{}])
-// if we'll not give space in split("") it will count all letters with space.
 const answer:
-{                                  
+{                                  //let answer=await inquirer.prompt([{}])
     sentence: string
-} = await inquirer.prompt([{
+}=await inquirer.prompt([{
     name:"sentence",
     type:"input",
-    message:(chalk.blueBright("Enter your sentence to count the word")), 
+    message:(chalk.blueBright("Enter your sentence to count the word")), // if we'll not give space in split("") it will count all letters with space
 }])
 const words= answer.sentence.trim().split(" ")                      //trim()  ==>Removes the leading and trailing white space/
                                                                      //  and line terminator characters from a string.
@@ -24,4 +23,5 @@ const words= answer.sentence.trim().split(" ")                      //trim()  ==
 console.log(words);
 
 //print the word count of the sentence to the console.
-console.log(chalk.blueBright(`Your sentence word count is  ${words.length}`));
+console.log(chalk.greenBright(`Your sentence word count is  ${words.length}`));
+console.log(chalk.blueBright.italic(`Thanks for using my word counting application..`));
