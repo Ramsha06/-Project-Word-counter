@@ -2,6 +2,7 @@
 
 // import inquirer which is command line interface for node.js
 import inquirer from "inquirer"
+import chalk from "chalk"
 
 // declare a constant answer and assign it to the result of inquirer.prompt function.
 
@@ -13,7 +14,7 @@ const answer:
 } = await inquirer.prompt([{
     name:"sentence",
     type:"input",
-    message:"Enter your sentence to count the word", 
+    message:(chalk.blueBright("Enter your sentence to count the word")), 
 }])
 const words= answer.sentence.trim().split(" ")                      //trim()  ==>Removes the leading and trailing white space/
                                                                      //  and line terminator characters from a string.
@@ -23,4 +24,4 @@ const words= answer.sentence.trim().split(" ")                      //trim()  ==
 console.log(words);
 
 //print the word count of the sentence to the console.
-console.log(`Your sentence word count is  ${words.length}`);
+console.log(chalk.blueBright(`Your sentence word count is  ${words.length}`));
